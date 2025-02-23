@@ -1,0 +1,2 @@
+Parei no 1 hr e 26 min e 24 sec
+tem que criar o container e conectar no banco de dados no DBEAVER

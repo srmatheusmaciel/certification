@@ -2,6 +2,7 @@ package br.com.matheusmaciel.certification.modules.students.entities;
 
 import java.util.UUID;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
