@@ -28,4 +28,6 @@ public class StudentEntity {
 
   @OneToMany(mappedBy = "studentEntity")
   private List<CertificationStudentEntity> certificationStudentEntity;
+
+  
 }

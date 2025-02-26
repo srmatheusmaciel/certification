@@ -24,9 +24,9 @@ public class StudentController {
 
 
     if(result){
-      return "Has certification";
+      return "Usuário já fez a prova";
     }
     
-    return "Does not have certification";
+    return "Usuário pode fazer a prova";
   }
 }
