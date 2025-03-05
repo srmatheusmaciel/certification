@@ -10,13 +10,11 @@ import br.com.matheusmaciel.certification.modules.questions.entities.QuestionEnt
 import br.com.matheusmaciel.certification.modules.questions.repositories.QuestionRepository;
 import br.com.matheusmaciel.certification.modules.students.dto.StudentCertificationAnswerDTO;
 import br.com.matheusmaciel.certification.modules.students.repositories.CertificationStudentRepository;
-import br.com.matheusmaciel.certification.modules.students.repositories.StudentRepository;
+
 
 @Service
 public class StudentCertificationAnswersService {
 
-  @Autowired
-  private StudentRepository studentRepository;
 
   @Autowired
   private QuestionRepository questionRepository;
@@ -28,11 +26,8 @@ public class StudentCertificationAnswersService {
   private VerifyIfHasCertificationService verifyIfHasCertificationService;
 
 
-  public StudentCertificationAnswerDTO execute(StudentCertificationAnswerDTO studentCertificationAnswerDTO ) throws Exception{
-    var student = studentRepository.findByEmail(studentCertificationAnswerDTO.getEmail());
-    if(student.isEmpty()){
-      throw new Exception("Usuário não encontrado");
-    }
+  public StudentCertificationAnswerDTO execute(StudentCertificationAnswerDTO studentCertificationAnswerDTO ){
+   
 
     List<QuestionEntity> questionsEntity = questionRepository.findByTechnology(studentCertificationAnswerDTO.getTechnology());
 
