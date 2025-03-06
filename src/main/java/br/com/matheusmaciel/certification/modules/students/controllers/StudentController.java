@@ -1,6 +1,7 @@
 package br.com.matheusmaciel.certification.modules.students.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,9 +38,13 @@ public class StudentController {
   }
 
   @PostMapping("/certification-answer")
-  public CertificationStudentEntity certificationAnswer(@RequestBody StudentCertificationAnswerDTO studentCertificationAnswerDTO){
-    return this.studentCertificationAnswersService.execute(studentCertificationAnswerDTO);
-
+  public ResponseEntity<Object> certificationAnswer(@RequestBody StudentCertificationAnswerDTO studentCertificationAnswerDTO){
+    try{
+      var result = studentCertificationAnswersService.execute(studentCertificationAnswerDTO);
+    return ResponseEntity.ok().body(result);
+    }catch(Exception e){
+      return ResponseEntity.badRequest().body(e.getMessage());
+    }
   }
 
 }

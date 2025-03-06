@@ -38,7 +38,7 @@ public class CertificationStudentEntity {
  
   private Integer grade; 
 
-  @Column(name = "studentid", nullable = false)
+  @Column(name = "student_id")
   private UUID studentId;  
 
   @ManyToOne

@@ -13,10 +13,15 @@ public class VerifyIfHasCertificationService {
   private CertificationStudentRepository certificationStudentRepository;
   
   public boolean execute(VerifyHasCertificationDTO dto){
-    var result = this.certificationStudentRepository.findByStudentEmailAndTechnology(dto.getEmail(), dto.getTechnology());
-    if(!result.isEmpty()){
-      return true;
-    }
-    return false;
-  }
+    System.out.println("Buscando certificação no banco para email: " + dto.getEmail() 
+                       + " e tecnologia: " + dto.getTechnology());
+
+    var result = this.certificationStudentRepository
+    .findByStudentEmailAndTechnology(dto.getEmail(),
+                                     dto.getTechnology());
+                                     
+    System.out.println("Resultado encontrado: " + result.size()); // 🔥 Ver quantos registros foram encontrados
+    
+    return !result.isEmpty();
+}
 }
